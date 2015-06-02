@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Fail hard and fast
+set -eo pipefail
+
+export ETCD_PORT1=${ETCD_PORT1:-2379}
+export ETCD_PORT2=${ETCD_PORT2:-4001}
+export HOST_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
+export ETCD="$HOST_IP:$ETCD_PORT1,$HOST_IP:$ETCD_PORT2"
+
+echo "[skydns] booting container. ETCD: $ETCD"
+
+/opt/bin/skydns -machines=$ETCD -addr=0.0.0.0:53 -nameservers=8.8.8.8:53,8.8.4.4:53
