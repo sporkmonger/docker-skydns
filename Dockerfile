@@ -7,8 +7,5 @@ RUN chmod a+x /opt/bin/start
 # Why is this at / ?
 RUN mv /skydns /opt/bin/skydns
 
-# Restore default ENTRYPOINT
-ENTRYPOINT /bin/sh -c
-
 # Run the boot script
-CMD /opt/bin/start
+ENTRYPOINT /opt/bin/start
