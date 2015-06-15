@@ -1,6 +1,8 @@
 FROM quay.io/sporkmonger/go
 MAINTAINER Bob Aman <bob@sporkmonger.com>
 
+RUN apk add --update bind-tools && rm -rf /var/cache/apk/*
+
 RUN mkdir -p /opt/bin
 
 COPY ./start /opt/bin/start
