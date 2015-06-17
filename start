@@ -11,3 +11,5 @@ export ETCD="http://$HOST_IP:$ETCD_PORT1,http://$HOST_IP:$ETCD_PORT2"
 echo "[skydns] booting container. ETCD: $ETCD"
 
 /opt/bin/skydns -machines=$ETCD -addr=0.0.0.0:53 $@
+
+echo "[skydns] exit"
