@@ -8,7 +8,7 @@ export ETCD_PORT2=${ETCD_PORT2:-4001}
 export HOST_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
 export ETCD="http://$HOST_IP:$ETCD_PORT1,http://$HOST_IP:$ETCD_PORT2"
 
-echo "[skydns] booting container. ETCD: $ETCD"
+echo "[skydns] booting container. ARGS: $@ ETCD: $ETCD"
 
 /opt/bin/skydns -machines=$ETCD -addr=0.0.0.0:53 $@
 
