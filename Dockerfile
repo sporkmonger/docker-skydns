@@ -15,5 +15,7 @@ RUN go get github.com/skynetservices/skydns && \
 COPY ./start /opt/bin/start
 RUN chmod a+x /opt/bin/start
 
+EXPOSE 53
+
 # Run the boot script
 CMD /opt/bin/start
