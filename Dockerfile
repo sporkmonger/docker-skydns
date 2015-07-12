@@ -15,6 +15,9 @@ RUN go get github.com/skynetservices/skydns && \
 COPY ./start /opt/bin/start
 RUN chmod a+x /opt/bin/start
 
+# Make sure everything is up-to-date
+RUN /opt/bin/cveck
+
 EXPOSE 53
 
 # Run the boot script
